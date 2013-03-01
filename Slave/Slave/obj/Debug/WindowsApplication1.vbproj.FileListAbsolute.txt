@@ -1,0 +1,10 @@
+C:\Dokumente und Einstellungen\Florian\Lokale Einstellungen\Anwendungsdaten\Temporary Projects\WindowsApplication1\bin\Debug\WindowsApplication1.exe
+C:\Dokumente und Einstellungen\Florian\Lokale Einstellungen\Anwendungsdaten\Temporary Projects\WindowsApplication1\bin\Debug\WindowsApplication1.pdb
+C:\Dokumente und Einstellungen\Florian\Lokale Einstellungen\Anwendungsdaten\Temporary Projects\WindowsApplication1\bin\Debug\WindowsApplication1.xml
+C:\Dokumente und Einstellungen\Florian\Lokale Einstellungen\Anwendungsdaten\Temporary Projects\WindowsApplication1\obj\Debug\ResolveAssemblyReference.cache
+C:\Dokumente und Einstellungen\Florian\Lokale Einstellungen\Anwendungsdaten\Temporary Projects\WindowsApplication1\obj\Debug\WindowsApplication1.Form1.resources
+C:\Dokumente und Einstellungen\Florian\Lokale Einstellungen\Anwendungsdaten\Temporary Projects\WindowsApplication1\obj\Debug\WindowsApplication1.Resources.resources
+C:\Dokumente und Einstellungen\Florian\Lokale Einstellungen\Anwendungsdaten\Temporary Projects\WindowsApplication1\obj\Debug\WindowsApplication1.vbproj.GenerateResource.Cache
+C:\Dokumente und Einstellungen\Florian\Lokale Einstellungen\Anwendungsdaten\Temporary Projects\WindowsApplication1\obj\Debug\WindowsApplication1.exe
+C:\Dokumente und Einstellungen\Florian\Lokale Einstellungen\Anwendungsdaten\Temporary Projects\WindowsApplication1\obj\Debug\WindowsApplication1.xml
+C:\Dokumente und Einstellungen\Florian\Lokale Einstellungen\Anwendungsdaten\Temporary Projects\WindowsApplication1\obj\Debug\WindowsApplication1.pdb
