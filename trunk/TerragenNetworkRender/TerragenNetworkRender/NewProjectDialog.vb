@@ -120,11 +120,11 @@ Public Class NewProjectDialog
                 project.Partwidth = Teiler
 
                 project.Picturecount = (Weite / Teiler) * (Höhe / Teiler)
-                Anzahllabel.Text = "Anzahl Teilbilder: " & project.Picturecount
+                Anzahllabel.Text = "Number of tiles: " & Project.Picturecount
 
 
             Else
-                MsgBox("Keine Terragen2-Datei ausgewählt")
+                MsgBox("You did not choose a Terragen 2 file")
             End If
 
         End If
@@ -135,7 +135,7 @@ Public Class NewProjectDialog
         project.Partheight = partheightspinner.Value
         Project.Partwidth = partwidthspinner.Value
         Dim picCount As Integer = Bildzahl(Project.Width, Project.Height, partwidthspinner.Value, partheightspinner.Value)
-        Anzahllabel.Text = "Anzahl Teilbilder: " & picCount.ToString
+        Anzahllabel.Text = "Number of tiles: " & picCount.ToString
         Project.Picturecount = picCount
     End Sub
 

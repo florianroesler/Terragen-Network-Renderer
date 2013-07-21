@@ -25,12 +25,34 @@ Public Class Form1
     Dim Socketstream, sreader
     Dim ReceivedFile As Boolean = False
     Dim p As New Process
-    Dim mydrive As String
+    'Dim mydrive As String
     Dim FileName As String
     Dim Picname As String
 
 
     Private Sub Form2_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        Dim IPtemp() = System.Net.Dns.GetHostAddresses(System.Net.Dns.GetHostName)
+        Dim addresses = New List(Of String)()
+        For Each address In IPtemp
+            If (address.AddressFamily = AddressFamily.InterNetwork) Then
+                addresses.Add(address.ToString)
+            End If
+        Next
+        If (addresses.Count = 0) Then
+            MsgBox("Please setup a network connection before using this software.")
+            Application.Exit()
+        End If
+        If (addresses.Count = 1) Then
+            IP = addresses(0)
+        Else
+            Dim ipDialog = New chooseIpDialog(addresses)
+            If ipDialog.ShowDialog = System.Windows.Forms.DialogResult.OK Then
+                IP = ipDialog.address
+            End If
+        End If
+
+
         If Registry.GetValue("HKEY_CURRENT_USER\Software\Terragen2", "Path", String.Empty) = "" Then
             MsgBox("This is the first time you start the slave on this machine. Please search for the tgdclie.exe of your Terragen 2 Deep version.")
             If searchexe.ShowDialog = Windows.Forms.DialogResult.OK Then
@@ -42,7 +64,6 @@ Public Class Form1
                 Me.Close()
             End If
         Else
-            'ListBox1.Items.Add("Registry Key existiert bereits: ")
 
             exepath = Registry.GetValue("HKEY_CURRENT_USER\Software\Terragen2", "Path", "False")
             If File.Exists(exepath) Then
@@ -61,19 +82,15 @@ Public Class Form1
             ListBox1.Items.Add(exepath)
         End If
         Ownpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath) & "\"
-        mydrive = System.IO.Path.GetPathRoot(Application.ExecutablePath)
-        'Windows 7
-        IP = IPtemp(2).ToString
+        'mydrive = System.IO.Path.GetPathRoot(Application.ExecutablePath)
 
-        'Windows XP
-        'IP = IPtemp(0).ToString
 
         ListBox1.Items.Add("Your IP: " + IP)
         shortip = IP.Substring(0, IP.LastIndexOf(".") + 1)
 
         TextBox1.Text = shortip
 
-        ListBox1.Items.Add("Your Root: " + mydrive)
+        'ListBox1.Items.Add("Your Root: " + mydrive)
         Filelistener.Start()
     End Sub
 
@@ -158,20 +175,19 @@ Public Class Form1
                 Dim fn As String = sreader.ReadString()
                 Dim l As Integer = sreader.ReadInt32()
                 Dim b() As Byte = sreader.ReadBytes(l)
-                Dim fs As New FileStream(mydrive & fn, FileMode.Create, _
+                Dim fs As New FileStream(Ownpath & fn, FileMode.Create, _
                   FileAccess.Write, FileShare.None)
                 FileName = fn
                 FilePath = Ownpath & fn
                 fs.Write(b, 0, l)
                 fs.Close()
                 ReceivedFile = True
-
+            Catch ex As Exception
+                MsgBox(ex.ToString)
             Finally
 
                 sreader.Close()
                 Socketstream.Close()
-                'nach msdn erst shutdown und dann close
-                'connection.Shutdown(SocketShutdown.Both)
                 connection.Close()
 
 
@@ -185,9 +201,9 @@ Public Class Form1
 
     Private Sub StartRendering()
         Picname = FileName.Substring(0, FileName.IndexOf(".")) + ".bmp"
-        ListBox1.Items.Add(exepath + " -p " + mydrive + FileName + " -hide -exit -r -o " + mydrive + Picname)
+        ListBox1.Items.Add(exepath + " -p " + Ownpath + FileName + " -hide -exit -r -o " + Ownpath + Picname)
         p.StartInfo.FileName = exepath
-        p.StartInfo.Arguments = "-p " + mydrive + FileName + " -hide -exit -r -o " + mydrive + Picname
+        p.StartInfo.Arguments = "-p " + Ownpath + FileName + " -hide -exit -r -o " + Ownpath + Picname
         p.Start()
         TerragenWorking.Start()
 
@@ -199,7 +215,7 @@ Public Class Form1
             Threading.Thread.Sleep(2000)
             ListBox1.Items.Add("Rendering finished")
             TerragenWorking.Stop()
-            Sendfile(mydrive + Picname, Picname, serverip)
+            Sendfile(Ownpath + Picname, Picname, serverip)
             TerragenWorking.Stop()
             RequestTask()
         End If

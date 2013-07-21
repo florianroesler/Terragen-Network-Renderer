@@ -22,57 +22,57 @@ Partial Class MainFrame
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainFrame))
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.ReceiveFile = New System.ComponentModel.BackgroundWorker
-        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip
-        Me.ProjectsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.CreateNewProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.OpenExistingProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.ServerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.StartServerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.StopServerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.pathTextbox = New System.Windows.Forms.TextBox
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView
-        Me.durationTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip
-        Me.ProgressBar1 = New System.Windows.Forms.ToolStripProgressBar
-        Me.durationlabel = New System.Windows.Forms.ToolStripStatusLabel
-        Me.processorTimeLabel = New System.Windows.Forms.ToolStripStatusLabel
-        Me.Console = New System.Windows.Forms.ListBox
-        Me.previewBox = New System.Windows.Forms.PictureBox
-        Me.reset = New System.Windows.Forms.Button
-        Me.processorMeasure = New System.Diagnostics.PerformanceCounter
-        Me.processorLabelTimer = New System.Windows.Forms.Timer(Me.components)
-        Me.NumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.StatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.serverListener = New System.Windows.Forms.Timer(Me.components)
+        Me.ReceiveFile = New System.ComponentModel.BackgroundWorker()
+        Me.ReceiveFileTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
+        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.ProjectsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CreateNewProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.OpenExistingProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ServerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StartServerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StopServerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pathTextbox = New System.Windows.Forms.TextBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.NumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ItemListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.durationTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
+        Me.durationlabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.processorTimeLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.theConsole = New System.Windows.Forms.ListBox()
+        Me.previewBox = New System.Windows.Forms.PictureBox()
+        Me.reset = New System.Windows.Forms.Button()
+        Me.processorMeasure = New System.Diagnostics.PerformanceCounter()
+        Me.processorLabelTimer = New System.Windows.Forms.Timer(Me.components)
         Me.RenderJobListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.RenderProjectBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ItemListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.previewBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.processorMeasure, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ItemListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RenderJobListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RenderProjectBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'Timer1
+        'serverListener
         '
-        Me.Timer1.Interval = 3000
+        Me.serverListener.Interval = 3000
         '
         'ReceiveFile
         '
         Me.ReceiveFile.WorkerReportsProgress = True
         '
-        'Timer2
+        'ReceiveFileTimer
         '
-        Me.Timer2.Interval = 3000
+        Me.ReceiveFileTimer.Interval = 3000
         '
         'OpenFileDialog2
         '
@@ -153,6 +153,27 @@ Partial Class MainFrame
         Me.DataGridView1.Size = New System.Drawing.Size(319, 168)
         Me.DataGridView1.TabIndex = 18
         '
+        'NumberDataGridViewTextBoxColumn
+        '
+        Me.NumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.NumberDataGridViewTextBoxColumn.DataPropertyName = "Number"
+        Me.NumberDataGridViewTextBoxColumn.HeaderText = "Number"
+        Me.NumberDataGridViewTextBoxColumn.Name = "NumberDataGridViewTextBoxColumn"
+        Me.NumberDataGridViewTextBoxColumn.ReadOnly = True
+        Me.NumberDataGridViewTextBoxColumn.Width = 69
+        '
+        'StatusDataGridViewTextBoxColumn
+        '
+        Me.StatusDataGridViewTextBoxColumn.DataPropertyName = "Status"
+        Me.StatusDataGridViewTextBoxColumn.HeaderText = "Status"
+        Me.StatusDataGridViewTextBoxColumn.Name = "StatusDataGridViewTextBoxColumn"
+        Me.StatusDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ItemListBindingSource
+        '
+        Me.ItemListBindingSource.DataMember = "ItemList"
+        Me.ItemListBindingSource.DataSource = GetType(WindowsApplication1.RenderJobList)
+        '
         'durationTimer
         '
         Me.durationTimer.Interval = 1000
@@ -184,15 +205,15 @@ Partial Class MainFrame
         Me.processorTimeLabel.Size = New System.Drawing.Size(91, 17)
         Me.processorTimeLabel.Text = "Processor Time:"
         '
-        'Console
+        'theConsole
         '
-        Me.Console.FormattingEnabled = True
-        Me.Console.HorizontalScrollbar = True
-        Me.Console.Location = New System.Drawing.Point(12, 60)
-        Me.Console.Name = "Console"
-        Me.Console.ScrollAlwaysVisible = True
-        Me.Console.Size = New System.Drawing.Size(374, 342)
-        Me.Console.TabIndex = 22
+        Me.theConsole.FormattingEnabled = True
+        Me.theConsole.HorizontalScrollbar = True
+        Me.theConsole.Location = New System.Drawing.Point(12, 60)
+        Me.theConsole.Name = "theConsole"
+        Me.theConsole.ScrollAlwaysVisible = True
+        Me.theConsole.Size = New System.Drawing.Size(374, 342)
+        Me.theConsole.TabIndex = 22
         '
         'previewBox
         '
@@ -224,27 +245,6 @@ Partial Class MainFrame
         Me.processorLabelTimer.Enabled = True
         Me.processorLabelTimer.Interval = 2000
         '
-        'NumberDataGridViewTextBoxColumn
-        '
-        Me.NumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.NumberDataGridViewTextBoxColumn.DataPropertyName = "Number"
-        Me.NumberDataGridViewTextBoxColumn.HeaderText = "Number"
-        Me.NumberDataGridViewTextBoxColumn.Name = "NumberDataGridViewTextBoxColumn"
-        Me.NumberDataGridViewTextBoxColumn.ReadOnly = True
-        Me.NumberDataGridViewTextBoxColumn.Width = 69
-        '
-        'StatusDataGridViewTextBoxColumn
-        '
-        Me.StatusDataGridViewTextBoxColumn.DataPropertyName = "Status"
-        Me.StatusDataGridViewTextBoxColumn.HeaderText = "Status"
-        Me.StatusDataGridViewTextBoxColumn.Name = "StatusDataGridViewTextBoxColumn"
-        Me.StatusDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ItemListBindingSource
-        '
-        Me.ItemListBindingSource.DataMember = "ItemList"
-        Me.ItemListBindingSource.DataSource = GetType(WindowsApplication1.RenderJobList)
-        '
         'RenderJobListBindingSource
         '
         Me.RenderJobListBindingSource.DataSource = GetType(WindowsApplication1.RenderJobList)
@@ -260,7 +260,7 @@ Partial Class MainFrame
         Me.ClientSize = New System.Drawing.Size(759, 441)
         Me.Controls.Add(Me.reset)
         Me.Controls.Add(Me.previewBox)
-        Me.Controls.Add(Me.Console)
+        Me.Controls.Add(Me.theConsole)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.pathTextbox)
@@ -273,20 +273,20 @@ Partial Class MainFrame
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ItemListBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         CType(Me.previewBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.processorMeasure, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ItemListBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RenderJobListBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RenderProjectBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents serverListener As System.Windows.Forms.Timer
     Friend WithEvents ReceiveFile As System.ComponentModel.BackgroundWorker
-    Friend WithEvents Timer2 As System.Windows.Forms.Timer
+    Friend WithEvents ReceiveFileTimer As System.Windows.Forms.Timer
     Friend WithEvents OpenFileDialog2 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents ProjectsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -303,7 +303,7 @@ Partial Class MainFrame
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
     Friend WithEvents durationlabel As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents ProgressBar1 As System.Windows.Forms.ToolStripProgressBar
-    Friend WithEvents Console As System.Windows.Forms.ListBox
+    Friend WithEvents theConsole As System.Windows.Forms.ListBox
     Friend WithEvents previewBox As System.Windows.Forms.PictureBox
     Friend WithEvents reset As System.Windows.Forms.Button
     Friend WithEvents RenderJobListBindingSource As System.Windows.Forms.BindingSource
