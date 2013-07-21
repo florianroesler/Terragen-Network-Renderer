@@ -22,16 +22,16 @@ Partial Class Form1
     'Das Bearbeiten mit dem Code-Editor ist nicht möglich.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.ListBox1 = New System.Windows.Forms.ListBox
-        Me.searchexe = New System.Windows.Forms.OpenFileDialog
-        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker
-        Me.Search = New System.Windows.Forms.Button
-        Me.TextBox1 = New System.Windows.Forms.TextBox
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.start = New System.Windows.Forms.Button
+        Me.components = New System.ComponentModel.Container()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.searchexe = New System.Windows.Forms.OpenFileDialog()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.Search = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.start = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.ReceiveFile = New System.ComponentModel.BackgroundWorker
+        Me.ReceiveFile = New System.ComponentModel.BackgroundWorker()
         Me.TerragenWorking = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -79,7 +79,7 @@ Partial Class Form1
         Me.GroupBox1.Size = New System.Drawing.Size(162, 106)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "GroupBox1"
+        Me.GroupBox1.Text = "Server"
         '
         'start
         '
