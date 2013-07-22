@@ -61,6 +61,7 @@ Public Class Server
 
         If (isFinished()) Then
             finishProject()
+            main.addLineToConsole("Project has been finished")
             Return
         End If
 
@@ -256,7 +257,6 @@ Public Class Server
     Private Sub finishProject()
         PutPicTogether()
         stopServer()
-        main.addLineToConsole("Project has been finished")
     End Sub
 
     Private Function isFinished() As Boolean
