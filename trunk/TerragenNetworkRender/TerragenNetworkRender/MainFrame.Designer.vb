@@ -34,9 +34,6 @@ Partial Class MainFrame
         Me.StopServerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.pathTextbox = New System.Windows.Forms.TextBox()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.NumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.StatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ItemListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.durationTimer = New System.Windows.Forms.Timer(Me.components)
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ProgressBar1 = New System.Windows.Forms.ToolStripProgressBar()
@@ -47,14 +44,17 @@ Partial Class MainFrame
         Me.reset = New System.Windows.Forms.Button()
         Me.processorMeasure = New System.Diagnostics.PerformanceCounter()
         Me.processorLabelTimer = New System.Windows.Forms.Timer(Me.components)
+        Me.NumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.StatusDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ItemListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.RenderJobListBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.RenderProjectBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ItemListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.StatusStrip1.SuspendLayout()
         CType(Me.previewBox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.processorMeasure, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ItemListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RenderJobListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RenderProjectBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -138,27 +138,6 @@ Partial Class MainFrame
         Me.DataGridView1.Size = New System.Drawing.Size(319, 168)
         Me.DataGridView1.TabIndex = 18
         '
-        'NumberDataGridViewTextBoxColumn
-        '
-        Me.NumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.NumberDataGridViewTextBoxColumn.DataPropertyName = "Number"
-        Me.NumberDataGridViewTextBoxColumn.HeaderText = "Number"
-        Me.NumberDataGridViewTextBoxColumn.Name = "NumberDataGridViewTextBoxColumn"
-        Me.NumberDataGridViewTextBoxColumn.ReadOnly = True
-        Me.NumberDataGridViewTextBoxColumn.Width = 69
-        '
-        'StatusDataGridViewTextBoxColumn
-        '
-        Me.StatusDataGridViewTextBoxColumn.DataPropertyName = "Status"
-        Me.StatusDataGridViewTextBoxColumn.HeaderText = "Status"
-        Me.StatusDataGridViewTextBoxColumn.Name = "StatusDataGridViewTextBoxColumn"
-        Me.StatusDataGridViewTextBoxColumn.ReadOnly = True
-        '
-        'ItemListBindingSource
-        '
-        Me.ItemListBindingSource.DataMember = "ItemList"
-        Me.ItemListBindingSource.DataSource = GetType(WindowsApplication1.RenderJobList)
-        '
         'durationTimer
         '
         Me.durationTimer.Interval = 1000
@@ -206,6 +185,7 @@ Partial Class MainFrame
         Me.previewBox.Location = New System.Drawing.Point(413, 224)
         Me.previewBox.Name = "previewBox"
         Me.previewBox.Size = New System.Drawing.Size(319, 178)
+        Me.previewBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.previewBox.TabIndex = 23
         Me.previewBox.TabStop = False
         '
@@ -229,6 +209,27 @@ Partial Class MainFrame
         '
         Me.processorLabelTimer.Enabled = True
         Me.processorLabelTimer.Interval = 2000
+        '
+        'NumberDataGridViewTextBoxColumn
+        '
+        Me.NumberDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.NumberDataGridViewTextBoxColumn.DataPropertyName = "Number"
+        Me.NumberDataGridViewTextBoxColumn.HeaderText = "Number"
+        Me.NumberDataGridViewTextBoxColumn.Name = "NumberDataGridViewTextBoxColumn"
+        Me.NumberDataGridViewTextBoxColumn.ReadOnly = True
+        Me.NumberDataGridViewTextBoxColumn.Width = 69
+        '
+        'StatusDataGridViewTextBoxColumn
+        '
+        Me.StatusDataGridViewTextBoxColumn.DataPropertyName = "Status"
+        Me.StatusDataGridViewTextBoxColumn.HeaderText = "Status"
+        Me.StatusDataGridViewTextBoxColumn.Name = "StatusDataGridViewTextBoxColumn"
+        Me.StatusDataGridViewTextBoxColumn.ReadOnly = True
+        '
+        'ItemListBindingSource
+        '
+        Me.ItemListBindingSource.DataMember = "ItemList"
+        Me.ItemListBindingSource.DataSource = GetType(WindowsApplication1.RenderJobList)
         '
         'RenderJobListBindingSource
         '
@@ -258,11 +259,11 @@ Partial Class MainFrame
         Me.MenuStrip1.ResumeLayout(False)
         Me.MenuStrip1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ItemListBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         CType(Me.previewBox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.processorMeasure, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ItemListBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RenderJobListBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RenderProjectBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
