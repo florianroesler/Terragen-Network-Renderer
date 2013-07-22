@@ -11,6 +11,15 @@ Public Class MainFrame
 
     Private Sub MainMenu_load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
 
+        getIpAddress()
+
+        server = New Server(Me, IP)
+
+        theConsole.Items.Add("Your IP is: " + IP.ToString)
+
+    End Sub
+
+    Private Sub getIpAddress()
         Dim IPtemp() = System.Net.Dns.GetHostAddresses(System.Net.Dns.GetHostName)
         Dim addresses = New List(Of String)()
         For Each address In IPtemp
@@ -28,13 +37,10 @@ Public Class MainFrame
             Dim ipDialog = New chooseIpDialog(addresses)
             If ipDialog.ShowDialog = System.Windows.Forms.DialogResult.OK Then
                 IP = ipDialog.address
+            Else
+                Application.Exit()
             End If
         End If
-
-        server = New Server(Me, IP)
-
-        theConsole.Items.Add("Your IP is: " + IP.ToString)
-
     End Sub
 
     Public Sub addLineToConsole(ByVal text As String)
@@ -102,7 +108,7 @@ Public Class MainFrame
     End Sub
 
     Private Sub StopServerToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles StopServerToolStripMenuItem.Click
-
+        server.stopServer()
     End Sub
 
 

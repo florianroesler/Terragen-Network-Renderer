@@ -58,6 +58,12 @@ Public Class Server
 
     Public Sub startServer(ByRef project As RenderProject)
         Me.project = project
+
+        If (isFinished()) Then
+            finishProject()
+            Return
+        End If
+
         listener.Start()
         Filelistener.Start()
 
@@ -71,6 +77,18 @@ Public Class Server
 
         startDate = DateAndTime.Now
         main.addLineToConsole("Server was started")
+
+    End Sub
+
+    Public Sub stopServer()
+        listener.Stop()
+        Filelistener.Stop()
+
+        serverListener.Stop()
+        durationTimer.Stop()
+
+        ReceiveFileTimer.Stop()
+        main.addLineToConsole("Server was stopped")
     End Sub
 
 
@@ -217,13 +235,11 @@ Public Class Server
                     File.Delete(ReceivedFileName)
                 End If
 
-                CheckProcessFile()
             Finally
 
                 sreader.Close()
                 socketstream.Close()
                 connection.Close()
-
 
             End Try
 
@@ -231,11 +247,19 @@ Public Class Server
 
         End Try
 
+        If (isFinished()) Then
+            finishProject()
+        End If
+
     End Sub
 
+    Private Sub finishProject()
+        PutPicTogether()
+        stopServer()
+        main.addLineToConsole("Project has been finished")
+    End Sub
 
-
-    Private Sub CheckProcessFile()
+    Private Function isFinished() As Boolean
         Dim help As Integer = 0
         Dim items As List(Of RenderJob) = project.JobList.ItemList
 
@@ -245,11 +269,12 @@ Public Class Server
             End If
         Next
         If help = items.Count Then
-
-            PutPicTogether()
+            Return True
+        Else
+            Return False
         End If
 
-    End Sub
+    End Function
 
     Private Sub ReceiveFileTimer_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs)
 
