@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class MainFrame
     Inherits System.Windows.Forms.Form
 
     'Das Formular überschreibt den Löschvorgang, um die Komponentenliste zu bereinigen.
@@ -23,27 +23,27 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.console = New System.Windows.Forms.ListBox()
         Me.searchexe = New System.Windows.Forms.OpenFileDialog()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
-        Me.Search = New System.Windows.Forms.Button()
+        Me.pingServer = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.start = New System.Windows.Forms.Button()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.startButton = New System.Windows.Forms.Button()
+        Me.fileReceivedTimer = New System.Windows.Forms.Timer(Me.components)
         Me.ReceiveFile = New System.ComponentModel.BackgroundWorker()
         Me.TerragenWorking = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'ListBox1
+        'console
         '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.HorizontalScrollbar = True
-        Me.ListBox1.Location = New System.Drawing.Point(12, 12)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(223, 238)
-        Me.ListBox1.TabIndex = 0
+        Me.console.FormattingEnabled = True
+        Me.console.HorizontalScrollbar = True
+        Me.console.Location = New System.Drawing.Point(12, 12)
+        Me.console.Name = "console"
+        Me.console.Size = New System.Drawing.Size(223, 238)
+        Me.console.TabIndex = 0
         '
         'searchexe
         '
@@ -53,14 +53,14 @@ Partial Class Form1
         '
         Me.BackgroundWorker1.WorkerReportsProgress = True
         '
-        'Search
+        'pingServer
         '
-        Me.Search.Location = New System.Drawing.Point(19, 46)
-        Me.Search.Name = "Search"
-        Me.Search.Size = New System.Drawing.Size(134, 23)
-        Me.Search.TabIndex = 2
-        Me.Search.Text = "Search Server"
-        Me.Search.UseVisualStyleBackColor = True
+        Me.pingServer.Location = New System.Drawing.Point(19, 46)
+        Me.pingServer.Name = "pingServer"
+        Me.pingServer.Size = New System.Drawing.Size(134, 23)
+        Me.pingServer.TabIndex = 2
+        Me.pingServer.Text = "Ping Server"
+        Me.pingServer.UseVisualStyleBackColor = True
         '
         'TextBox1
         '
@@ -71,9 +71,9 @@ Partial Class Form1
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.start)
+        Me.GroupBox1.Controls.Add(Me.startButton)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.Search)
+        Me.GroupBox1.Controls.Add(Me.pingServer)
         Me.GroupBox1.Location = New System.Drawing.Point(258, 12)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(162, 106)
@@ -81,18 +81,18 @@ Partial Class Form1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Server"
         '
-        'start
+        'startButton
         '
-        Me.start.Location = New System.Drawing.Point(19, 75)
-        Me.start.Name = "start"
-        Me.start.Size = New System.Drawing.Size(134, 23)
-        Me.start.TabIndex = 4
-        Me.start.Text = "Start Client"
-        Me.start.UseVisualStyleBackColor = True
+        Me.startButton.Location = New System.Drawing.Point(19, 75)
+        Me.startButton.Name = "startButton"
+        Me.startButton.Size = New System.Drawing.Size(134, 23)
+        Me.startButton.TabIndex = 4
+        Me.startButton.Text = "Start Client"
+        Me.startButton.UseVisualStyleBackColor = True
         '
-        'Timer1
+        'fileReceivedTimer
         '
-        Me.Timer1.Interval = 2000
+        Me.fileReceivedTimer.Interval = 2000
         '
         'ReceiveFile
         '
@@ -102,28 +102,28 @@ Partial Class Form1
         '
         Me.TerragenWorking.Interval = 5000
         '
-        'Form1
+        'MainFrame
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(427, 285)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.ListBox1)
-        Me.Name = "Form1"
+        Me.Controls.Add(Me.console)
+        Me.Name = "MainFrame"
         Me.Text = "Slave"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
+    Friend WithEvents console As System.Windows.Forms.ListBox
     Friend WithEvents searchexe As System.Windows.Forms.OpenFileDialog
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
-    Friend WithEvents Search As System.Windows.Forms.Button
+    Friend WithEvents pingServer As System.Windows.Forms.Button
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents start As System.Windows.Forms.Button
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents startButton As System.Windows.Forms.Button
+    Friend WithEvents fileReceivedTimer As System.Windows.Forms.Timer
     Friend WithEvents ReceiveFile As System.ComponentModel.BackgroundWorker
     Friend WithEvents TerragenWorking As System.Windows.Forms.Timer
 
