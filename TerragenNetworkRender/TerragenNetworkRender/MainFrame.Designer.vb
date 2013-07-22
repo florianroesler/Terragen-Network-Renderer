@@ -24,9 +24,6 @@ Partial Class MainFrame
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainFrame))
-        Me.serverListener = New System.Windows.Forms.Timer(Me.components)
-        Me.ReceiveFile = New System.ComponentModel.BackgroundWorker()
-        Me.ReceiveFileTimer = New System.Windows.Forms.Timer(Me.components)
         Me.OpenFileDialog2 = New System.Windows.Forms.OpenFileDialog()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ProjectsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -61,18 +58,6 @@ Partial Class MainFrame
         CType(Me.RenderJobListBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RenderProjectBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'serverListener
-        '
-        Me.serverListener.Interval = 3000
-        '
-        'ReceiveFile
-        '
-        Me.ReceiveFile.WorkerReportsProgress = True
-        '
-        'ReceiveFileTimer
-        '
-        Me.ReceiveFileTimer.Interval = 3000
         '
         'OpenFileDialog2
         '
@@ -284,9 +269,6 @@ Partial Class MainFrame
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents serverListener As System.Windows.Forms.Timer
-    Friend WithEvents ReceiveFile As System.ComponentModel.BackgroundWorker
-    Friend WithEvents ReceiveFileTimer As System.Windows.Forms.Timer
     Friend WithEvents OpenFileDialog2 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents ProjectsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
