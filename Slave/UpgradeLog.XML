@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Slave">
+</Property><Property Name="Projektmappendatei" Value="C:\Users\FloLap\Desktop\code\trunk\Slave\Slave.sln">
+</Property><Property Name="Date" Value="Sonntag, 21. Juli 2013">
+</Property><Property Name="Time" Value="15:07">
+</Property></Properties><Event ErrorLevel="0" Project="Slave" Source="Slave\Slave.vbproj" Description="Projekt erfolgreich konvertiert">
+</Event><Event ErrorLevel="3" Project="Slave" Source="Slave\Slave.vbproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="Slave.sln" Description="Die Projektmappe wurde erfolgreich konvertiert.">
+</Event><Event ErrorLevel="3" Project="" Source="Slave.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Slave" Source="Slave\Slave.vbproj" Description="Überprüfung abgeschlossen: Upgrade der Projektdateien nicht erforderlich.">
+</Event></UpgradeLog>
